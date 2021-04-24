@@ -1,0 +1,141 @@
+veniaResponse:
+  resolver: conditional
+  when:
+    - matches: request.url.pathname
+      pattern: ^/(graphql|rest|media)(/|$)
+      use: veniaProxy
+    - matches: request.url.pathname
+      pattern: ^/(robots\.txt|favicon\.ico|manifest\.json)
+      use: staticFromRoot
+    - matches: fileExtension
+      pattern: (js|json|png|jpg|gif|svg|ico|css|txt)
+      use: veniaStatic
+  default: veniaAppShell
+staticFromRoot:
+  inline:
+    status: 200
+    headers:
+      resolver: inline
+      inline:
+        content-type: contentTypeFromExtension
+        cache-control:
+          when:
+            - matches: env.NODE_ENV
+              pattern: production
+              use:
+                inline: 'public, max-age=604800'
+          default:
+            inline: 'no-cache, no-store, must-revalidate'
+    body:
+      resolver: file
+      parse:
+        inline: text
+      encoding:
+        inline: binary
+      file:
+        resolver: template
+        engine: mustache
+        provide:
+          filename: request.url.pathname
+        template:
+          resolver: inline
+          inline: './venia-static/{{ filename }}'
+contentTypeFromExtension:
+  when:
+    - matches: fileExtension
+      pattern: ^ico$
+      use:
+        inline: image/x-icon
+    - matches: fileExtension
+      pattern: ^txt$
+      use:
+        inline: text/plain
+    - matches: fileExtension
+      pattern: ^json$
+      use:
+        inline: application/json
+  default:
+    inline: text/html
+fileExtension:
+  resolver: conditional
+  when:
+    - matches: request.url.pathname
+      pattern: \.(.*)$
+      use: $match.$1
+  default:
+    inline: ''
+veniaProxy:
+  resolver: proxy
+  target: env.MAGENTO_BACKEND_URL
+  ignoreSSLErrors:
+    when:
+      - matches: env.NODE_ENV
+        pattern: production
+        use:
+          inline: false
+    default:
+      inline: true
+veniaAppShell:
+  resolver: inline
+  inline:
+    status:
+      resolver: inline
+      inline: 200
+    headers:
+      resolver: inline
+      inline:
+        content-type:
+          inline: text/html
+        content-security-policy: veniaSecurityHeaders.content-security-policy
+        strict-transport-security: veniaSecurityHeaders.strict-transport-security
+        x-content-type-options: veniaSecurityHeaders.x-content-type-options
+        x-frame-options: veniaSecurityHeaders.x-frame-options
+        x-xss-protection: veniaSecurityHeaders.x-xss-protection
+    body:
+      resolver: file
+      file:
+        resolver: inline
+        inline: ./index.html
+veniaStatic:
+  resolver: directory
+  directory:
+    resolver: inline
+    inline: .
+veniaStaticIncludes:
+  resolver: directory
+  directory:
+    resolver: inline
+    inline: ./venia-static
+veniaSecurityHeaders:
+  resolver: inline
+  inline:
+    content-security-policy:
+      resolver: template
+      engine: mustache
+      provide:
+        backend: env.MAGENTO_BACKEND_URL
+      template:
+        resolver: conditional
+        when:
+          - matches: env.NODE_ENV
+            pattern: development
+            use:
+              inline: ''
+        default:
+          inline: >-
+            script-src http: https: {{ backend }}; style-src 'self' blob: https:
+            'unsafe-inline' {{ backend }}; img-src data: http: https:;
+            object-src 'none'; base-uri 'none'; child-src 'self'; font-src
+            'self' fonts.gstatic.com; frame-src assets.braintreegateway.com
+            *.youtube.com *.youtu.be *.vimeo.com
+    strict-transport-security:
+      inline: max-age=31536000
+    x-content-type-options:
+      inline: nosniff
+    x-frame-options:
+      inline: SAMEORIGIN
+    x-xss-protection:
+      inline: 1; mode=block
+status: veniaResponse.status
+headers: veniaResponse.headers
+body: veniaResponse.body
