@@ -1,10 +1,11 @@
 {
     "name": "pwa-studio-upward-proxy",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "PWA Studio UPWARD Proxy",
     "main": "index.js",
     "scripts": {
-      "start": "node server.js"
+      "start": "node server.js",
+      "start:express": "node server-express.js"
     },
     "keywords": [],
     "author": "Ray Bogman <hello@raybogman.com>",
