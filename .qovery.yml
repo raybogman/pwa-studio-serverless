@@ -1,0 +1,11 @@
+---
+application:
+  name: "pwa-static-github-io"
+  project: "pwa-studio"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-pwa-static-github-io"
+  routes:
+  - application_name: "pwa-static-github-io"
+    paths:
+    - "/*"
