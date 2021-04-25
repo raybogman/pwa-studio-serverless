@@ -1,6 +1,6 @@
 {
     "name": "PWA Studio - UPWARD Proxy",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "PWA Studio - UPWARD Proxy",
     "main": "index.js",
     "scripts": {
