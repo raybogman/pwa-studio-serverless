@@ -1,6 +1,6 @@
 {
     "name": "pwa-studio-upward-proxy",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "PWA Studio UPWARD Proxy",
     "main": "index.js",
     "scripts": {
@@ -11,6 +11,7 @@
     "license": "MIT",
     "dependencies": {
       "@magento/upward-js": "^5.1.0",
-      "react": "~17.0.1"
+      "react": "~17.0.1",
+      "express": "~4.16.4"
     }
   }
