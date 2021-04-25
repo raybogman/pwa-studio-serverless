@@ -66,7 +66,7 @@ fileExtension:
     inline: ''
 veniaProxy:
   resolver: proxy
-  target: https://venia-develop-ccewfjy-mfwmkrjfqvbjk.us-4.magentosite.cloud/
+  target: env.MAGENTO_BACKEND_URL
   ignoreSSLErrors:
     when:
       - matches: env.NODE_ENV
