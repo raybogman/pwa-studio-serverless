@@ -2,7 +2,7 @@ const { createUpwardServer } = require('@magento/upward-js');
 
 async function serve() {
   await createUpwardServer({
-    port: 80,
+    port: 3000,
     bindLocal: true,
     logUrl: true,
     upwardPath: './upward.yml',
