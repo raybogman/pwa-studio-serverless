@@ -41,5 +41,5 @@ Alternative is docker-compose
 - [https://aws.amazon.com/fargate/pricing/](https://aws.amazon.com/fargate/pricing/)
 
 example (us-east-1):
-1 day = ~$0.97
-30 days = ~$29.14
+1 day = ~$0.97 (vCPU) + ~$0.10 (Mem)= ~$1.07
+30 days = ~$29.14 + ~$3.20 = ~$32.34
