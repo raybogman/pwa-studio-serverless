@@ -42,4 +42,4 @@ Alternative is docker-compose
 
 example (us-east-1):
 1 day = ~$0.97 (vCPU) + ~$0.10 (Mem)= ~$1.07
-30 days = ~$29.14 + ~$3.20 = ~$32.34
+30 days = ~$29.14 + ~$3.20 (Mem) = ~$32.34
