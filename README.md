@@ -13,10 +13,10 @@ The minimal requirement is:
 
 Alternative is docker-compose
 
-- docker-compuse up
+- docker-compose up
 
 ### PWA Studio Serverless to-do's
-- :white_check_mark: ~~ Next step is run the docker image on AWS Fargate. ~~
+- :white_check_mark: ~~Next step is run the docker image on AWS Fargate.~~
 - Use Docker Hub to update newly build into AWS Fargate.
     Alternative:
     - Create AWS ECS repositry, update newly build into AWS Fargate.
