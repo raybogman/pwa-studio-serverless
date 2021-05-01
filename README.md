@@ -7,12 +7,30 @@ The minimal requirement is:
 
 ### Install
 - Clone git repo
-- Build Docker image (docker build -t pwa-studio .)
-- docker run -d -p 80:80 pwa-studio
-- check http://localhost in your browser
+- Build Docker image (docker build -t pwa-studio-serverless .)
+- docker run -d -p 3000:3000 pwa-studio-serverless
+- check http://localhost:3000 in your browser
 
-### Serverless PWA Studio
-- Next step is run the docker image on AWS Fargate
+Alternative is docker-compose
+
+- docker-compuse up
+
+### PWA Studio Serverless to-do's
+- :white_check_mark: ~~ Next step is run the docker image on AWS Fargate. ~~
+- Use Docker Hub to update newly build into AWS Fargate.
+    Alternative:
+    - Create AWS ECS repositry, update newly build into AWS Fargate.
+- Create simple CI/CD build shell script to build docker image after "yarn run build" has completed.
+    Ideas:
+    - Create new folder 'or' clone "pwa-studio-severless" within PWA studio project and run "docker-build.sh" script.
+    - Create PWA script/function e.g. "yarn run build:serverless" which build, create and pushes docker to repo.
 - Split Docker image into 2 Docker images and using a docker-compose.yml file. This way the "dist" folder can be rebuild during CI/CD process flows.
+- SSL termination on LoadBalancer
 
 
+### Knows issues/tips
+- don't build docker images on port 80 (0-1024). Root privileged only. Port Forward (eg. AWS ALB "Application Loadbalance" listener (sercurity groups)) is best option.
+
+### Readings
+- [https://docs.docker.com/cloud/ecs-integration/](https://docs.docker.com/cloud/ecs-integration/)
+- [https://aws.amazon.com/blogs/containers/authenticating-with-docker-hub-for-aws-container-services/](https://aws.amazon.com/blogs/containers/authenticating-with-docker-hub-for-aws-container-services/)
