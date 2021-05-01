@@ -34,3 +34,12 @@ Alternative is docker-compose
 ### Readings
 - [https://docs.docker.com/cloud/ecs-integration/](https://docs.docker.com/cloud/ecs-integration/)
 - [https://aws.amazon.com/blogs/containers/authenticating-with-docker-hub-for-aws-container-services/](https://aws.amazon.com/blogs/containers/authenticating-with-docker-hub-for-aws-container-services/)
+- [https://aws.amazon.com/blogs/containers/create-a-ci-cd-pipeline-for-amazon-ecs-with-github-actions-and-aws-codebuild-tests/](https://aws.amazon.com/blogs/containers/create-a-ci-cd-pipeline-for-amazon-ecs-with-github-actions-and-aws-codebuild-tests/)
+
+
+### Pricing
+- [https://aws.amazon.com/fargate/pricing/](https://aws.amazon.com/fargate/pricing/)
+
+example (us-east-1):
+1 day = ~$0.97
+30 days = ~$29.14
