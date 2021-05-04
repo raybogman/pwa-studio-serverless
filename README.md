@@ -37,6 +37,8 @@ Alternative is docker-compose
 - [https://aws.amazon.com/blogs/containers/create-a-ci-cd-pipeline-for-amazon-ecs-with-github-actions-and-aws-codebuild-tests/](https://aws.amazon.com/blogs/containers/create-a-ci-cd-pipeline-for-amazon-ecs-with-github-actions-and-aws-codebuild-tests/)
 - [https://docs.github.com/en/actions/guides/deploying-to-amazon-elastic-container-service](https://docs.github.com/en/actions/guides/deploying-to-amazon-elastic-container-service)
 - [https://docs.aws.amazon.com/cli/latest/reference/ecs/describe-task-definition.html](https://docs.aws.amazon.com/cli/latest/reference/ecs/describe-task-definition.html)
+- [https://github.com/aws-actions/amazon-ecr-login](https://github.com/aws-actions/amazon-ecr-login)
+- [https://docs.aws.amazon.com/AmazonECR/latest/userguide/security_iam_service-with-iam.html](https://docs.aws.amazon.com/AmazonECR/latest/userguide/security_iam_service-with-iam.html)
 
 ### Pricing
 - [https://aws.amazon.com/fargate/pricing/](https://aws.amazon.com/fargate/pricing/)
