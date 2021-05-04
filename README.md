@@ -17,9 +17,9 @@ Alternative is docker-compose
 
 ### PWA Studio Serverless to-do's
 - :white_check_mark: ~~Next step is run the docker image on AWS Fargate.~~
-- Use Docker Hub to update newly build into AWS Fargate.
+- Create AWS ECS repositry, update newly build into AWS Fargate using Github Actions.
     Alternative:
-    - Create AWS ECS repositry, update newly build into AWS Fargate.
+    - Use Docker Hub to update newly build into AWS Fargate.
 - Create simple CI/CD build shell script to build docker image after "yarn run build" has completed.
     Ideas:
     - Create new folder 'or' clone "pwa-studio-severless" within PWA studio project and run "docker-build.sh" script.
