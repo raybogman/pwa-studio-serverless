@@ -31,13 +31,6 @@ Alternative is docker-compose
 ### Knows issues/tips
 - don't build docker images on port 80 (0-1024). Root privileged only. Port Forward (eg. AWS ALB "Application Loadbalance" listener (sercurity groups)) is best option.
 
-### SSL termination on LoadBalancer
-
-- Route 53
-- ACM (AWS Certificate Manager)
-- ALB listener 443 update
-- [https://aws.amazon.com/certificate-manager/pricing/](https://aws.amazon.com/certificate-manager/pricing/)
-
 ### Best Practice AWS Copilot kickstart
 
 Basic version [test setup]
@@ -66,7 +59,7 @@ Use step 1-5 to get your project started.
     - update a image, css or something else and run the same command. The new deploy will automaticly replace the old image without any downtime. Tip. have a look in AWS console --> ECS --> Repositories and Task Definitions. They will have a update version.
 
 Now lets create an 'prod' version
-- copilot env init --name prod --profile your-custom-aws-profile-name" --app venia
+- copilot env init --name prod --profile "your-custom-aws-profile-name" --app venia
 - copilot svc deploy --name alb --env prod
 
 Delete a single environment
@@ -76,12 +69,12 @@ Delete a single environment
 Like to delete all at ones:
 - copilot app delete
 
-In case you like to check your current setup run:
+In case you like to check your current setup run:  (tip: export AWS_PROFILE=your-custom-aws-profile-name)
 - copilot app ls        # list the applications managed by copilot
 - copilot app show      # describe environments and services
 - copilot env ls        # list the environments
 - copilot svc show      # describe service and will gather information to present it in one centralized place in the console
-- copilot svc ls        # list services
+- copilot svc ls        # list services    
 - copilot svc logs      # show service logs
 - copilot svc status    # show service status
 
@@ -89,6 +82,15 @@ In case you like to check your current setup run:
 
 Most impact is to host your domain at AWS Route 53. It's possible to host is somewhere else but this is beound the scope is this tutorial. You need to do some DNS hacking and not done correctly it will impact the `copilot init` deploy schema and will get stuck (guilty as charged - the 'HTTPSCert' is not able to create a CERT if the NS are not connected on your subdomain while hosting that on AWS Route 53 - so be carefull ;-)
 
+- Route 53
+- ACM (AWS Certificate Manager)
+- ALB listener 443 update
+- [https://aws.amazon.com/certificate-manager/pricing/](https://aws.amazon.com/certificate-manager/pricing/)
+
+### AWS copilot CI/CD
+
+- copilot pipeline init
+- copilot pipeline update
 
 
 ### Readings
@@ -111,43 +113,46 @@ example (us-east-1):
 ### Loadtest
 
 `ab -n 10000 -c 50 http://your-url.com/`
-This command tells ApacheBench to make 5000 requests to my service, with a concurrency of 25 requests at a time.
+This command tells ApacheBench to make 10000 requests to my service, with a concurrency of 50 requests at a time.
 
-The final results show a very acceptable 111 requests per second, p99 of only 253 ms, and an average time per request of 225ms.
+The final results show a very acceptable 111 requests per second, p99 of only 1715 ms, and an average time per request of 788ms.
 `
 Server Software:
-Server Hostname:        your-url.com
-Server Port:            80
+Server Hostname:        alb.prod.venia.bogman.info
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,2048,128
+Server Temp Key:        ECDH P-256 256 bits
+TLS Server Name:        alb.prod.venia.bogman.info
 
 Document Path:          /
 Document Length:        7138 bytes
 
-Concurrency Level:      25
-Time taken for tests:   45.010 seconds
-Complete requests:      5000
+Concurrency Level:      50
+Time taken for tests:   157.777 seconds
+Complete requests:      10000
 Failed requests:        0
-Total transferred:      39470000 bytes
-HTML transferred:       35690000 bytes
-Requests per second:    111.09 [#/sec] (mean)
-Time per request:       225.052 [ms] (mean)
-Time per request:       9.002 [ms] (mean, across all concurrent requests)
-Transfer rate:          856.36 [Kbytes/sec] received
+Total transferred:      78940000 bytes
+HTML transferred:       71380000 bytes
+Requests per second:    63.38 [#/sec] (mean)
+Time per request:       788.885 [ms] (mean)
+Time per request:       15.778 [ms] (mean, across all concurrent requests)
+Transfer rate:          488.60 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:      102  110   3.9    110     150
-Processing:   103  113   5.9    112     196
-Waiting:      103  113   5.9    112     196
-Total:        208  223   7.4    222     311
+Connect:      335  590 165.6    550    1834
+Processing:   104  194 108.1    159    1241
+Waiting:      104  170  75.1    145     904
+Total:        456  785 207.8    710    2259
 
 Percentage of the requests served within a certain time (ms)
-  50%    222
-  66%    224
-  75%    226
-  80%    227
-  90%    230
-  95%    232
-  98%    240
-  99%    253
- 100%    311 (longest request)
+  50%    710
+  66%    768
+  75%    832
+  80%    867
+  90%   1034
+  95%   1189
+  98%   1441
+  99%   1715
+ 100%   2259 (longest request)
  `
