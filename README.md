@@ -90,12 +90,17 @@ Most impact is to host your domain at AWS Route 53. It's possible to host is som
 ### AWS copilot CI/CD
 
 - copilot pipeline init
+
+The following files are created pipeline.yml & buildspec.yml in your copilot folder. Before you run the following command make sure to review the pipeline.yml file and update your branch name. Default is set to "main". In case you have forgotten a workaround is to update the AWS CodePipeline -> Pipeline Name -> Edit -> Edit Stage -> Edit Action -> Branch name (it's pretty much well hidden, so be carefull it will save your tons of debugging why your pipeline is not working)
 - copilot pipeline update
-- go to: https://console.aws.amazon.com/codesuite/settings/connections (authorize github/gitlab to connect your repository to AWS CodeCommit, AWS CodeArtifact, AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline) to support "AWS Connector for GitHub"
+- go to: https://console.aws.amazon.com/codesuite/settings/connections (authorize Github/Bitbucket/Github Enterprise to connect your repository to AWS CodePipeline -> AWS CodeBuild -> AWS CodeDeploy) to support "AWS Connector for GitHub"
 - Choose `Install a new app` in the popup window.
 
 - copilot pipeline status
 - copilot pipeline show
+
+In case you like to remove or start from scratch with your AWS copilot pipeline run the following command.
+- copilot pipeline delete
 
 
 ### Readings
