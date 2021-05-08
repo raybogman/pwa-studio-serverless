@@ -91,6 +91,11 @@ Most impact is to host your domain at AWS Route 53. It's possible to host is som
 
 - copilot pipeline init
 - copilot pipeline update
+- go to: https://console.aws.amazon.com/codesuite/settings/connections (authorize github/gitlab to connect your repository to AWS CodeCommit, AWS CodeArtifact, AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline) to support "AWS Connector for GitHub"
+- Choose `Install a new app` in the popup window.
+
+- copilot pipeline status
+- copilot pipeline show
 
 
 ### Readings

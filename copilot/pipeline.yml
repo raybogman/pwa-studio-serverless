@@ -14,7 +14,7 @@ source:
   # the artifacts should be sourced from. For example, the GitHub provider
   # has the following properties: repository, branch.
   properties:
-    branch: main
+    branch: master
     repository: https://github.com/raybogman/pwa-studio-serverless
     # Optional: specify the name of an existing CodeStar Connections connection.
     # connection_name: a-connection
