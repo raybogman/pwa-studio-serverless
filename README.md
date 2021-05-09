@@ -31,9 +31,11 @@ Basic version [test setup]
     - AdministratorAccess
 
 :exclamation: I am fully aware this is not a best practice, so be careful when create your new IAM role and choosing your AWS Policies.
-2. Instal [https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html](AWS CLI)
+
+2. Instal [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 3. Create custom profile
     - export profile (export AWS_PROFILE=your-custom-aws-profile-name)
+
 4. Install AWS Copilot    
 5. Clone this "pwa-studio-serverless" repository
 6. run `copilot init` 
@@ -41,6 +43,7 @@ Basic version [test setup]
     - choose Load balancer Web Service and give it a name
     - choose ./Dockerfile (unless it's not in your root dir)
     - choose 'test' deploy environment, Yes
+
 7. copilot app delete
 
 Advanced version [test & prod setup] (custom domain, pipeline deploy)
