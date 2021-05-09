@@ -21,7 +21,7 @@ Alternative is docker-compose
 
 The following AWS Copilot kickstart plan helps you to build an AWS ECS/Fargate serverless environment. This environment will use the smalest Memory (512mb) and CPU (256mb) footprint. It's ideal for testing and maybe even small production sites. By the way the performance result are amzing :heart_eyes:.
 
-I have created 2 simple senario's, an Basic and Advanced version. Take your time getting to know AWS and [https://aws.github.io/copilot-cli/](AWS Copilot). In case you are brand new to AWS, please take some cources before you kickoff, those will help big time, or even getting [https://raybogman.com/amazon-aws-certified-cloud-practitioner-exam-preparation](AWS Certified). AWS can be overwelming :wink:.
+I have created 2 simple senario's, an Basic and Advanced version. Take your time getting to know AWS and [AWS Copilot](https://aws.github.io/copilot-cli/). In case you are brand new to AWS, please take some cources before you kickoff, those will help big time, or even getting [AWS Certified](https://raybogman.com/amazon-aws-certified-cloud-practitioner-exam-preparation). AWS can be overwelming :wink:.
 
 Basic version [test setup]
 1. Create custom AWS IAM role using the following AWS Policies
@@ -29,6 +29,7 @@ Basic version [test setup]
     - AmazonS3FullAccess
     - AmazonSSMFullAccess
     - AdministratorAccess
+
 :exclamation: I am fully aware this is not a best practice, so be careful when create your new IAM role and choosing your AWS Policies.
 2. Instal [https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html](AWS CLI)
 3. Create custom profile
