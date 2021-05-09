@@ -23,7 +23,7 @@ The following AWS Copilot kickstart plan helps you to build an AWS ECS/Fargate s
 
 I have created 2 simple senario's, an Basic and Advanced version. Take your time getting to know AWS and [AWS Copilot](https://aws.github.io/copilot-cli/). In case you are brand new to AWS, please take some cources before you kickoff, those will help big time, or even getting [AWS Certified](https://raybogman.com/amazon-aws-certified-cloud-practitioner-exam-preparation). AWS can be overwelming :wink:.
 
-Basic version [test setup]
+#### Basic version [test setup]
 1. Create custom AWS IAM role using the following AWS Policies
     - ECS FullAccess
     - AmazonS3FullAccess
@@ -46,7 +46,7 @@ Basic version [test setup]
 
 7. copilot app delete
 
-Advanced version [test & prod setup] (custom domain, pipeline deploy)
+#### Advanced version [test & prod setup] (custom domain, pipeline deploy)
 Use step 1-5 to get your project started.
 
 - copilot app init --domain your-domain.com (you need to be registered your domain at Route 53, otherwise it will not work)
@@ -69,13 +69,14 @@ Like to delete all at ones:
 - copilot app delete
 
 In case you like to check your current setup run:  (tip: export AWS_PROFILE=your-custom-aws-profile-name)
-- copilot app ls        # list the applications managed by copilot
-- copilot app show      # describe environments and services
-- copilot env ls        # list the environments
-- copilot svc show      # describe service and will gather information to present it in one centralized place in the console
-- copilot svc ls        # list services    
-- copilot svc logs      # show service logs
-- copilot svc status    # show service status
+|---------------------|----------------------------------------------------------------------------------------------------|
+|copilot app ls       |list the applications managed by copilot                                                            |
+|copilot app show     |describe environments and services                                                                  |
+|copilot env ls       |list the environments                                                                               |
+|copilot svc show     |describe service and will gather information to present it in one centralized place in the console  |
+|copilot svc ls       |list services                                                                                       |
+|copilot svc logs     |show service logs                                                                                   |
+|copilot svc status   |show service status                                                                                 |
 
 #### How to configure (TLS) SSL on AWS ECS/ALB/ACM/Route53
 
