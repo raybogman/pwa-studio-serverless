@@ -69,14 +69,15 @@ Like to delete all at ones:
 - copilot app delete
 
 In case you like to check your current setup run:  (tip: export AWS_PROFILE=your-custom-aws-profile-name)
-|---------------------|----------------------------------------------------------------------------------------------------|
-|copilot app ls       |list the applications managed by copilot                                                            |
-|copilot app show     |describe environments and services                                                                  |
-|copilot env ls       |list the environments                                                                               |
-|copilot svc show     |describe service and will gather information to present it in one centralized place in the console  |
-|copilot svc ls       |list services                                                                                       |
-|copilot svc logs     |show service logs                                                                                   |
-|copilot svc status   |show service status                                                                                 |
+| Command              | Desciption                                                                                          |
+|--------------------- |-----------------------------------------------------------------------------------------------------|
+| copilot app ls       | list the applications managed by copilot                                                            |
+| copilot app show     | describe environments and services                                                                  |
+| copilot env ls       | list the environments                                                                               |
+| copilot svc show     | describe service and will gather information to present it in one centralized place in the console  |
+| copilot svc ls       | list services                                                                                       |
+| copilot svc logs     | show service logs                                                                                   |
+| copilot svc status   | show service status                                                                                 |
 
 #### How to configure (TLS) SSL on AWS ECS/ALB/ACM/Route53
 
