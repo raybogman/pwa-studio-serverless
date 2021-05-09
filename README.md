@@ -69,7 +69,7 @@ Like to delete all at ones:
 - copilot app delete
 
 In case you like to check your current setup run:  (tip: export AWS_PROFILE=your-custom-aws-profile-name)
-| Command              | Desciption                                                                                          |
+| Command              | Description                                                                                         |
 |--------------------- |-----------------------------------------------------------------------------------------------------|
 | copilot app ls       | list the applications managed by copilot                                                            |
 | copilot app show     | describe environments and services                                                                  |
