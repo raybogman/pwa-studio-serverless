@@ -38,7 +38,7 @@ I have created 2 simple senario's, an Basic and Advanced version. Take your time
 
 4. Install AWS Copilot    
 5. Clone this "pwa-studio-serverless" repository
-6. run `copilot init` 
+6. Run `copilot init` 
     - choose an application name
     - choose Load balancer Web Service and give it a name
     - choose ./Dockerfile (unless it's not in your root dir)
@@ -78,6 +78,8 @@ In case you like to check your current setup run:  (tip: export AWS_PROFILE=your
 | copilot svc ls       | list services                                                                                       |
 | copilot svc logs     | show service logs                                                                                   |
 | copilot svc status   | show service status                                                                                 |
+| copilot svc exec     | run commands into the containers                                                                    |
+| copilot svc package  | will show you the cloud formation used to deploy the infrastructure                                 |
 
 #### How to configure (TLS) SSL on AWS ECS/ALB/ACM/Route53
 
@@ -167,6 +169,15 @@ The final results show a very acceptable 2k requests in 10.77s, p97.5 of only 43
     - Create PWA script/function e.g. "yarn run build:serverless" which build, create and pushes docker to repo.
 - Test express server compare to node
 - Horizontal scalling
+
+### yarn run build:serverless
+
+In case you like to build a easy full CI/CD pipeline starting the events in PWA Studio review the following step.
+keep in mind these step are not a best practice step yet. But I hope you get the idea and build an npm module yourself.
+
+Visit [https://github.com/raybogman/serverless](https://github.com/raybogman/serverless) and checkout the README.
+This will guide you how to kickstart an **PWA Studio Serverless** project using **AWS ECS/Fargate**.
+
 
 ### Readings
 - [https://aws.github.io/copilot-cli/](https://aws.github.io/copilot-cli/)
