@@ -163,10 +163,10 @@ The final results show a very acceptable 2k requests in 10.77s, p97.5 of only 43
 - :white_check_mark: ~~Next step is run the docker image on AWS Fargate.~~
 - :white_check_mark: ~~Create AWS Copilot environment + pipeline~~ 
 - :white_check_mark: ~~SSL termination on Load Balancer, AWS Certificate Manager, Route 53~~
-- Create simple CI/CD build shell script to build docker image after "yarn run build" has completed.
-    Ideas:
-    - Create new folder 'or' clone "pwa-studio-severless" within PWA studio project and run "docker-build.sh" script.
-    - Create PWA script/function e.g. "yarn run build:serverless" which build, create and pushes docker to repo.
+- :white_check_mark:  ̶C̶r̶e̶a̶t̶e̶ ̶s̶i̶m̶p̶l̶e̶ ̶C̶I̶/̶C̶D̶ ̶b̶u̶i̶l̶d̶ ̶s̶h̶e̶l̶l̶ ̶s̶c̶r̶i̶p̶t̶ ̶t̶o̶ ̶b̶u̶i̶l̶d̶ ̶d̶o̶c̶k̶e̶r̶ ̶i̶m̶a̶g̶e̶ ̶a̶f̶t̶e̶r̶ ̶"̶y̶a̶r̶n̶ ̶r̶u̶n̶ ̶b̶u̶i̶l̶d̶"̶ ̶h̶a̶s̶ ̶c̶o̶m̶p̶l̶e̶t̶e̶d̶.̶
+    ̶ ̶I̶d̶e̶a̶s̶:̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶r̶e̶a̶t̶e̶ ̶n̶e̶w̶ ̶f̶o̶l̶d̶e̶r̶ ̶'̶o̶r̶'̶ ̶c̶l̶o̶n̶e̶ ̶"̶p̶w̶a̶-̶s̶t̶u̶d̶i̶o̶-̶s̶e̶v̶e̶r̶l̶e̶s̶s̶"̶ ̶w̶i̶t̶h̶i̶n̶ ̶P̶W̶A̶ ̶s̶t̶u̶d̶i̶o̶ ̶p̶r̶o̶j̶e̶c̶t̶ ̶a̶n̶d̶ ̶r̶u̶n̶ ̶"̶d̶o̶c̶k̶e̶r̶-̶b̶u̶i̶l̶d̶.̶s̶h̶"̶ ̶s̶c̶r̶i̶p̶t̶.̶
+̶ ̶ ̶ ̶ ̶-̶ ̶C̶r̶e̶a̶t̶e̶ ̶P̶W̶A̶ ̶s̶c̶r̶i̶p̶t̶/̶f̶u̶n̶c̶t̶i̶o̶n̶ ̶e̶.̶g̶.̶ ̶"̶y̶a̶r̶n̶ ̶r̶u̶n̶ ̶b̶u̶i̶l̶d̶:̶s̶e̶r̶v̶e̶r̶l̶e̶s̶s̶"̶ ̶w̶h̶i̶c̶h̶ ̶b̶u̶i̶l̶d̶,̶ ̶c̶r̶e̶a̶t̶e̶ ̶a̶n̶d̶ ̶p̶u̶s̶h̶e̶s̶ ̶d̶o̶c̶k̶e̶r̶ ̶t̶o̶ ̶r̶e̶p̶o̶.̶
 - Test express server compare to node
 - Horizontal scalling
 
